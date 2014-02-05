@@ -1,0 +1,3 @@
+<% if (includeFoundation) { %>
+$(document).foundation();
+<% } %>

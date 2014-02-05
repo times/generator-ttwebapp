@@ -1,0 +1,14 @@
+{
+  "name": "<%= _.slugify(projectName) %>",
+  "version": "0.0.0",
+  "private": "true",
+  "devDependencies": {
+    "grunt": "~0.4.2",
+    "grunt-contrib-jshint": "~0.7.2",
+    "grunt-contrib-uglify": "~0.3.2",
+    "grunt-contrib-watch": "~0.5.3",
+    "grunt-contrib-copy": "~0.5.0",
+    "grunt-contrib-clean": "~0.5.0"<% if (includeFoundation) { %>,
+    "grunt-sass": "~0.10.0"<% } %>
+  }
+}
