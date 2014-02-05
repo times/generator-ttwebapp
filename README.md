@@ -1,4 +1,4 @@
-[![Build Status](https://secure.travis-ci.org/times/generator-ttwebapp.png?branch=master)](https://travis-ci.org/times/generator-ttwebapp)
+[![Build Status](https://travis-ci.org/times/generator-ttwebapp.png?branch=master)](https://travis-ci.org/times/generator-ttwebapp)
 
 A generator for [Yeoman](http://yeoman.io).
 
