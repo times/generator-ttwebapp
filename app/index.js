@@ -74,4 +74,6 @@ TtwebappGenerator.prototype.runtime = function runtime() {
   this.copy('humans.txt', 'humans.txt');
   this.copy('bowerrc', '.bowerrc');
   this.copy('gitignore', '.gitignore');
+  this.copy('editorconfig', '.editorconfig');
+  this.copy('jshintrc', '.jshintrc');
 };
