@@ -43,8 +43,11 @@ module.exports = function(grunt) {
         banner: '/*! <%%= pkg.name %> <%%= grunt.template.today("yyyy-mm-dd") %> */\n'
       },
       build: {
-        src: 'js/app.js',
-        dest: 'js/app.min.js'
+        src: 'js/*.js',
+        dest: 'js/',
+        expand: true,
+        flatten: true,
+        ext: '.min.js'
       }
     },
 
@@ -85,7 +88,7 @@ module.exports = function(grunt) {
       server: {
         path: 'http://localhost:<%%= connect.options.port %>'
       }
-    }, 
+    },
 
     sass: {
       <% if (includeFoundation) { %>options: {
