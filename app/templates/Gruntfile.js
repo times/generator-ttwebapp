@@ -2,6 +2,12 @@
 /*jslint node: true */
 'use strict';
 
+var LIVERELOAD_PORT = 35729;
+var lrSnippet = require('connect-livereload')({port: LIVERELOAD_PORT});
+var mountFolder = function (connect, dir) {
+  return connect.static(require('path').resolve(dir));
+};
+
 module.exports = function(grunt) {
 
   var taskConfig = {
@@ -57,6 +63,30 @@ module.exports = function(grunt) {
       }
     },
 
+    connect: {
+      options: {
+        port: 9000,
+        // change this to '0.0.0.0' to access the server from outside
+        hostname: 'localhost'
+      },
+      livereload: {
+        options: {
+          middleware: function (connect) {
+            return [
+              lrSnippet,
+              mountFolder(connect, '.')
+            ];
+          }
+        }
+      }
+    },
+
+    open: {
+      server: {
+        path: 'http://localhost:<%%= connect.options.port %>'
+      }
+    }, 
+
     sass: {
       <% if (includeFoundation) { %>options: {
         includePaths: ['bower_components/foundation/scss']
@@ -87,10 +117,13 @@ module.exports = function(grunt) {
   grunt.loadNpmTasks('grunt-contrib-uglify');
   grunt.loadNpmTasks('grunt-contrib-jshint');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-contrib-connect');
+  grunt.loadNpmTasks('grunt-open');
 
   grunt.initConfig( taskConfig );
 
   grunt.registerTask('build', ['clean','copy','jshint','uglify','sass']);
+  grunt.registerTask('serve', ['build', 'connect:livereload', 'open', 'watch']);
   grunt.registerTask( 'default', ['build', 'watch'] );
 
 };
