@@ -1,7 +1,7 @@
 {
   "name": "generator-ttwebapp",
-  "version": "0.0.4",
-  "description": "A generator for Yeoman",
+  "version": "0.0.5",
+  "description": "The Times digital team web app template",
   "keywords": [
     "yeoman-generator"
   ],
